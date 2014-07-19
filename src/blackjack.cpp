@@ -3,4 +3,5 @@
 Blackjack::Blackjack()
 {
     std::cout << "Hello blackjack" << std::endl;
+    deck.printDeck();
 }
