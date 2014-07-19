@@ -4,10 +4,10 @@
 ## Macros
 # Note: may need to change compiler; using Windows, so g++ may not like file paths
 CC=g++
-CFLAGS=-c -Wall
+CFLAGS=-c -Wall -std=c++11
 
 # Files (consider using a wildcard?)
-SOURCES=src/main.cpp src/blackjack.cpp src/player.cpp src/dealer.cpp
+SOURCES=src/main.cpp src/blackjack.cpp src/player.cpp src/dealer.cpp src/deck.cpp
 
 # TODO: Learn how to move the .o files (or remove after build)
 OBJECTS=$(SOURCES:.cpp=.o)
