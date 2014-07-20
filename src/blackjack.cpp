@@ -31,6 +31,7 @@ int Blackjack::startGame()
         distributeChips();
     } while(player.canPlay());
 
+    std::cout << "Game over" << std::endl;
     return 1;
 }
 
