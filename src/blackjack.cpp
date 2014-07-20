@@ -5,6 +5,13 @@ Blackjack::Blackjack()
     std::cout << "Hello blackjack" << std::endl;
 }
 
+void Blackjack::initialize()
+{
+    deck.addToDeck(player.returnHand());
+    deck.addToDeck(dealer.returnHand());
+    player.resetBet();
+}
+
 int Blackjack::startGame()
 {
     // Initialize deck
@@ -13,6 +20,9 @@ int Blackjack::startGame()
 
     // The game loop
     do {
+        // return hands and set bets to 0
+        initialize();
+
         // Shuffle deck
         deck.shuffle();
 

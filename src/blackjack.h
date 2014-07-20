@@ -17,6 +17,7 @@ class Blackjack
     bool getPlayerActions();
     int getDealerActions();
     void distributeChips();
+    void initialize();
 
     int parseAction();
     void dealCards();
