@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 // Keeping all three class/enum declarations here since they're small and related
 
@@ -30,6 +31,7 @@ class Card
 
 class Deck
 {
+    /** Members that'll stay constant after constructor  **/
     std::string suit_map[4] = {"SPADE", "DIAMOND", "HEART", "CLUB"};
     // Totally unnecessary to use this, but wanted to try it out
     std::unordered_map<std::string, int> card_value_mapping = {
@@ -47,8 +49,16 @@ class Deck
         {"Three", 3},
         {"Two", 2}
     };
+    Card standard_deck[52];
 
-    Card cards[52];
+    /** Private members **/
+    int num_standard_decks;
+    std::vector<Card> current_deck;
+
+    /** Private methods **/
+    void fillStandardDeck();
+    void buildDeck(int num_decks);
+
     public:
         Deck();
         int shuffle();
