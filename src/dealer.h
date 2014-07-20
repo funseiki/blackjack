@@ -7,7 +7,12 @@ class Dealer : public Player
 {
     public:
         Dealer() : Player() { }
+        Dealer(int startingChips):Player(startingChips) {}
+        Action getAction();
+
         void printPartial();
+        void printState();
+
 };
 
 #endif
