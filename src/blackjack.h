@@ -21,7 +21,11 @@ class Blackjack
     int parseAction();
     void dealCards();
 
-    void gameText(const char * s) { std::cout << s << std::endl; }
+    void gameText(const char * s) {
+        std::cout << "********************"<< std::endl;
+        std::cout << s << std::endl;
+        std::cout << "********************"<< std::endl;
+    }
 
     public:
         Blackjack();
