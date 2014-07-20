@@ -79,11 +79,22 @@ int Player::getBet()
     return betAmount;
 }
 
+// Returns highest possible value under 21
 int Player::getHandValue()
 {
     int value = 0;
-    for(vector<Card>::iterator it = hand.begin(); it != hand.end(); ++it) {
-        value += it->getValue();
+    value += nonAceTotal;
+    // The below can probably just be put into addtohand, so it's only done once
+    if(numAces > 0) {
+        // If we have more than one ace, all except one MUST act as 1 instead of 11
+        value += (numAces - 1);
+
+        if(value <= 10) {
+            value += 11;
+        }
+        else {
+            value += 1;
+        }
     }
     return value;
 }
@@ -91,6 +102,12 @@ int Player::getHandValue()
 void Player::addToHand(Card c)
 {
     hand.push_back(c);
+    if(c.value != 11) {
+        nonAceTotal += c.value;
+    }
+    else {
+        numAces++;
+    }
 }
 
 vector<Card> Player::returnHand()
