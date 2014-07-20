@@ -9,7 +9,8 @@ void Blackjack::initialize()
 {
     deck.addToDeck(player.returnHand());
     deck.addToDeck(dealer.returnHand());
-    player.resetBet();
+    player.reset();
+    dealer.reset();
 }
 
 int Blackjack::startGame()
