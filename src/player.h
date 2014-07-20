@@ -13,9 +13,10 @@ using namespace std;
 class Player {
     int chips;
     int chipsBet;
-    vector<Card> hand;
     string getInput();
 
+    protected:
+        vector<Card> hand;
     public:
         Player();
         Player(int startingChips):chips(startingChips), chipsBet(0) {}
