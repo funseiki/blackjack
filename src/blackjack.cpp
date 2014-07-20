@@ -45,6 +45,12 @@ int Blackjack::getPlayerBets()
 void Blackjack::dealCards()
 {
     gameText("Dealing cards");
+    // Could perhaps use a loop for this
+    player.addToHand(deck.drawCard());
+    dealer.addToHand(deck.drawCard());
+    player.addToHand(deck.drawCard());
+    dealer.addToHand(deck.drawCard());
+    dealer.printPartial();
 }
 
 int Blackjack::getPlayerActions()
