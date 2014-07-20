@@ -48,6 +48,7 @@ void Blackjack::dealCards()
 int Blackjack::getPlayerActions()
 {
     gameText("Getting player actions");
+    player.getAction();
     return 1;
 }
 
