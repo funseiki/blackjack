@@ -47,6 +47,15 @@ Card Deck::drawCard()
     return ret;
 }
 
+void Deck::addToDeck(std::vector<Card> v)
+{
+    unsigned int length = v.size();
+    for(unsigned int i = 0; i < length; i++) {
+        current_deck.push_back(v.back());
+        v.pop_back();
+    }
+}
+
 void Deck::printDeck()
 {
     for(std::vector<Card>::iterator it = current_deck.begin(); it != current_deck.end(); ++it)

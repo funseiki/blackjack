@@ -75,6 +75,7 @@ class Deck
         int shuffle();
         Card drawCard();
         void printDeck();
+        void addToDeck(std::vector<Card> v);
 };
 
 #endif
