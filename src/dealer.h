@@ -7,6 +7,7 @@ class Dealer : public Player
 {
     public:
         Dealer() : Player() { }
+        void printPartial();
 };
 
 #endif
