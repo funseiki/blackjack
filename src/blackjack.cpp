@@ -12,7 +12,7 @@ int Blackjack::startGame()
     //  ^^ Happens in the constructor
 
     // The game loop
-    while(player.canPlay()) {
+    do {
         // Shuffle deck
         deck.shuffle();
 
@@ -29,7 +29,7 @@ int Blackjack::startGame()
 
         // If player's won anything, hand over the chips
         distributeChips();
-    }
+    } while(player.canPlay());
 
     return 1;
 }
