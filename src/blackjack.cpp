@@ -23,9 +23,15 @@ int Blackjack::startGame()
         dealCards();
 
         // Should probably make this a loop if there's gonna be more players
-        if(getPlayerActions()) {
-            getDealerActions();
+        if(!getPlayerActions()) {
+            stringstream s;
+            s << "Player busts with " << player.getHandValue();
+            gameText(s.str().c_str());
+            // The player busted, we can just continue
+            continue;
         }
+
+        getDealerActions();
 
         // If player's won anything, hand over the chips
         distributeChips();
@@ -53,11 +59,21 @@ void Blackjack::dealCards()
     dealer.printPartial();
 }
 
-int Blackjack::getPlayerActions()
+bool Blackjack::getPlayerActions()
 {
     gameText("Getting player actions");
-    player.getAction();
-    return 1;
+    while(player.canAct()) {
+        Action action = player.getAction();
+        if(action.isHit()) {
+            gameText("Player has hit");
+            player.addToHand(deck.drawCard());
+        }
+        else {
+            gameText("Player stands");
+            break;
+        }
+    }
+    return player.getHandValue() < 21;
 }
 
 int Blackjack::parseAction()
