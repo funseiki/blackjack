@@ -51,6 +51,7 @@ class Player {
                 nonAceTotal(0), numAces(0) {}
         int getChips() { return chips; }
         int getChipsBet(){ return chipsBet; }
+
         bool canAct();
         bool canPlay();
 
@@ -59,6 +60,7 @@ class Player {
         int getHandValue();
         void printHand();
 
+        void addChips(int chipCount);
         void addToHand(Card c);
         vector<Card> returnHand();
 

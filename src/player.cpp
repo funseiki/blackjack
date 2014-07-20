@@ -99,6 +99,11 @@ int Player::getHandValue()
     return value;
 }
 
+void Player::addChips(int chipValue)
+{
+    chips += chipValue;
+}
+
 void Player::addToHand(Card c)
 {
     hand.push_back(c);
