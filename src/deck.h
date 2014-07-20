@@ -5,6 +5,9 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+#include <algorithm>
+#include <ctime> // for the random seed
+#include <cstdlib>
 
 // Keeping all three class/enum declarations here since they're small and related
 
@@ -25,6 +28,10 @@ class Card
             value = val;
             name = card_name;
             suit = card_suit;
+        }
+
+        void print() {
+            std::cout << name << " of " << suit << ": " << value << std::endl;
         }
 
 };

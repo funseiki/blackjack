@@ -2,6 +2,9 @@
 
 Deck::Deck()
 {
+    // As per http://www.cplusplus.com/reference/algorithm/random_shuffle/
+    std::srand( unsigned(std::time(0)) );
+
     num_standard_decks = 1;
     fillStandardDeck();
     buildDeck(num_standard_decks);
@@ -33,7 +36,15 @@ void Deck::buildDeck(int num_decks)
 
 int Deck::shuffle()
 {
+    std::random_shuffle( current_deck.begin(), current_deck.end() );
     return 0;
+}
+
+Card Deck::drawCard()
+{
+    Card ret = current_deck.back();
+    current_deck.pop_back();
+    return ret;
 }
 
 void Deck::printDeck()
