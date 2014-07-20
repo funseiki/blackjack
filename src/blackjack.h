@@ -19,7 +19,6 @@ class Blackjack
     void distributeChips();
     void initialize();
 
-    int parseAction();
     void dealCards();
 
     void gameText(const char * s) {

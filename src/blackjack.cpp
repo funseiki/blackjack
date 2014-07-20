@@ -86,13 +86,6 @@ bool Blackjack::getPlayerActions()
     return player.getHandValue() < 21;
 }
 
-int Blackjack::parseAction()
-{
-    gameText("Parsing actions");
-    return 1;
-}
-
-
 int Blackjack::getDealerActions()
 {
     gameText("Getting dealer actions");
