@@ -43,10 +43,14 @@ class Player {
 
     protected:
         vector<Card> hand;
+        int nonAceTotal;
+        int numAces;
     public:
         Player();
-        Player(int startingChips):chips(startingChips), chipsBet(0) {}
-        int getChips();
+        Player(int startingChips):chips(startingChips), chipsBet(0),
+                nonAceTotal(0), numAces(0) {}
+        int getChips() { return chips; }
+        int getChipsBet(){ return chipsBet; }
         bool canAct();
         bool canPlay();
 
