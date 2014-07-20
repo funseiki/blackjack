@@ -12,17 +12,20 @@ using namespace std;
 
 class Player {
     int chips;
+    int chipsBet;
     vector<Card> hand;
     string getInput();
 
     public:
         Player();
+        Player(int startingChips):chips(startingChips) {}
         int getChips();
         bool canAct();
         bool canPlay();
 
         string getAction();
         int getBet();
+        void printState();
 };
 
 #endif
