@@ -50,15 +50,18 @@ class Player {
         bool canAct();
         bool canPlay();
 
-        Action getAction();
         int getBet();
         void resetBet();
         int getHandValue();
-        void printState();
         void printHand();
 
         void addToHand(Card c);
         vector<Card> returnHand();
+
+        /** Virtual Methods **/
+        virtual Action getAction();
+        virtual void printState();
+
 };
 
 #endif
