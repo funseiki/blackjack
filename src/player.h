@@ -52,6 +52,7 @@ class Player {
 
         Action getAction();
         int getBet();
+        void resetBet();
         int getHandValue();
         void printState();
         void printHand();

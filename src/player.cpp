@@ -104,6 +104,11 @@ vector<Card> Player::returnHand()
     return oldHand;
 }
 
+void Player::resetBet()
+{
+    chipsBet = 0;
+}
+
 void Player::printState()
 {
     cout << "Player State" << endl;
