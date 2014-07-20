@@ -26,6 +26,7 @@ class Blackjack
         std::cout << "********************"<< std::endl;
         std::cout << s << std::endl;
         std::cout << "********************"<< std::endl;
+        std::cin.ignore();
     }
 
     public:
