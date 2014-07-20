@@ -26,7 +26,11 @@ class Player {
 
         string getAction();
         int getBet();
+        int getHandValue();
         void printState();
+        void printHand();
+
+        void addToHand(Card c);
 };
 
 #endif

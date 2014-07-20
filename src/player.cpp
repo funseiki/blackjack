@@ -78,15 +78,37 @@ int Player::getBet()
     return betAmount;
 }
 
+int Player::getHandValue()
+{
+    int value = 0;
+    for(vector<Card>::iterator it = hand.begin(); it != hand.end(); ++it) {
+        value += it->getValue();
+    }
+    return value;
+}
+
+void Player::addToHand(Card c)
+{
+    hand.push_back(c);
+}
+
 void Player::printState()
 {
     cout << "Player State" << endl;
     cout << "------------" << endl;
     cout << "Chips held: " << chips << endl;
     cout << "Chips bet: " << chipsBet << endl;
-    cout << "Hand: ";
+    printHand();
+    cout << endl << "-------------" << endl;
+}
+
+void Player::printHand()
+{
+    cout << "Hand: [";
     for(vector<Card>::iterator it = hand.begin(); it != hand.end(); ++it) {
         it->print();
+        cout << ", ";
     }
-    cout << endl << "-------------" << endl;
+    cout << "]" << endl;;
+    cout << "Hand Total: " << getHandValue() << endl;
 }
