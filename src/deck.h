@@ -30,6 +30,10 @@ class Card
             suit = card_suit;
         }
 
+        int getValue() {
+            return value;
+        }
+
         void print() {
             std::cout << name << " of " << suit << ": " << value << std::endl;
         }
