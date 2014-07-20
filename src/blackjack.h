@@ -12,9 +12,11 @@ class Blackjack
     Player player;
     Dealer dealer;
     Deck deck;
+    int getPlayerActions();
     public:
         Blackjack();
         Blackjack(int numplayers);
+        int startGame();
 };
 
 #endif
