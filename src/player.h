@@ -18,7 +18,7 @@ class Player {
 
     public:
         Player();
-        Player(int startingChips):chips(startingChips) {}
+        Player(int startingChips):chips(startingChips), chipsBet(0) {}
         int getChips();
         bool canAct();
         bool canPlay();

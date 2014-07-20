@@ -4,6 +4,7 @@ Player::Player()
 {
     cout << "Hello player" << endl;
     chips = 100;
+    chipsBet = 0;
 }
 
 bool Player::canAct()
