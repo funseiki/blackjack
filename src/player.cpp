@@ -29,6 +29,7 @@ string Player::getAction()
     int attempts = 0;
     string in;
     while(attempts < 3) {
+        printState();
         cout << "Enter an action (h: hit, s: stand): ";
         in = getInput();
         if(!in.compare("h") || !in.compare("hit") || !in.compare("s") || !in.compare("stand")) {
@@ -53,6 +54,7 @@ int Player::getBet()
     string in;
     int betAmount =  0;
     while(attempts < 3) {
+        printState();
         cout << "Enter bet amount: ";
         in = getInput();
         if(stringstream(in) >> betAmount && betAmount <= chips &&  betAmount > 0) {
