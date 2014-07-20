@@ -4,7 +4,7 @@ Player::Player()
 {
     cout << "Hello player" << endl;
     chips = 100;
-    chipsBet = 0;
+    reset();
 }
 
 bool Player::canAct()
@@ -104,9 +104,11 @@ vector<Card> Player::returnHand()
     return oldHand;
 }
 
-void Player::resetBet()
+void Player::reset()
 {
     chipsBet = 0;
+    numAces = 0;
+    nonAceTotal = 0;
 }
 
 void Player::printState()

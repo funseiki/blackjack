@@ -55,7 +55,7 @@ class Player {
         bool canPlay();
 
         int getBet();
-        void resetBet();
+        void reset();
         int getHandValue();
         void printHand();
 
