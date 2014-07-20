@@ -14,8 +14,7 @@ class Blackjack
     Dealer dealer;
     Deck deck;
     int getPlayerBets();
-    bool getPlayerActions();
-    int getDealerActions();
+    bool getPlayerActions(Player& player, const char * name);
     void distributeChips();
     void initialize();
 

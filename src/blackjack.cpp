@@ -34,7 +34,7 @@ int Blackjack::startGame()
         dealCards();
 
         // Should probably make this a loop if there's gonna be more players
-        if(!getPlayerActions()) {
+        if(!getPlayerActions(player, "Player")) {
             stringstream s;
             s << "Player busts with " << player.getHandValue();
             gameText(s.str().c_str());
@@ -42,7 +42,7 @@ int Blackjack::startGame()
             continue;
         }
 
-        getDealerActions();
+        getPlayerActions(dealer, "Dealer");
 
         // If player's won anything, hand over the chips
         distributeChips();
@@ -70,27 +70,27 @@ void Blackjack::dealCards()
     dealer.printPartial();
 }
 
-bool Blackjack::getPlayerActions()
+bool Blackjack::getPlayerActions(Player& player, const char * name)
 {
-    gameText("Getting player actions");
+    std::stringstream s;
+    s << "Getting " << name << " actions" << endl;
+    gameText(s.str().c_str());
     while(player.canAct()) {
+        s.str("");
         Action action = player.getAction();
         if(action.isHit()) {
-            gameText("Player has hit");
+            s << name << " has hit";
+            gameText(s.str().c_str());
             player.addToHand(deck.drawCard());
         }
         else {
-            gameText("Player stands");
+            s << name << " stands";
+            gameText(s.str().c_str());
             break;
         }
     }
-    return player.getHandValue() < 21;
-}
-
-int Blackjack::getDealerActions()
-{
-    gameText("Getting dealer actions");
-    return 1;
+    player.printState();
+    return player.getHandValue() <= 21;
 }
 
 void Blackjack::distributeChips()
