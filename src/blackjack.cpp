@@ -37,6 +37,7 @@ int Blackjack::startGame()
 int Blackjack::getPlayerBets()
 {
     gameText("Getting player bets");
+    player.getBet();
     return 1;
 }
 
