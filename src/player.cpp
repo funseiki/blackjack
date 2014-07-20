@@ -9,7 +9,7 @@ Player::Player()
 
 bool Player::canAct()
 {
-    return false;
+    return getHandValue() < 21;
 }
 
 bool Player::canPlay()
