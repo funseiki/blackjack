@@ -95,5 +95,36 @@ bool Blackjack::getPlayerActions(Player& player, const char * name)
 
 void Blackjack::distributeChips()
 {
-    gameText("Distributing chips");
+    gameText("Determining results");
+    int playerHand = player.getHandValue();
+    int dealerHand = dealer.getHandValue();
+    stringstream s;
+    s << "Player's total: " << player.getHandValue() << endl
+        << "Dealer's total: " << dealer.getHandValue() << endl;
+
+    int chipsReturned = 0;
+    if(dealerHand > 21) {
+        // Dealer busts, player wins
+        s << "Dealer busts, player takes chips" << endl;
+        chipsReturned = player.getChipsBet() + (1.5*player.getChipsBet());
+    }
+    else if(dealerHand < playerHand) {
+        // Player has the greater value
+        s << "Player wins, player takes chips" << endl;
+        gameText(s.str().c_str());
+        chipsReturned = player.getChipsBet() + (1.5*player.getChipsBet());
+    }
+    else if((dealerHand != 21) && (dealerHand == playerHand))
+    {
+        // push, player gets money back
+        s << "Push, player gets money back" << endl;
+
+        chipsReturned = player.getChipsBet();
+    }
+    else {
+        s << "Loss, dealer wins this round" << endl;
+    }
+    s << "Player receives " << chipsReturned << " chips this round" << endl;
+    gameText(s.str().c_str());
+    player.addChips(chipsReturned);
 }
