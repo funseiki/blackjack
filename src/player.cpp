@@ -24,7 +24,7 @@ string Player::getInput()
     return ret;
 }
 
-string Player::getAction()
+Action Player::getAction()
 {
     int attempts = 0;
     string in;
@@ -39,13 +39,14 @@ string Player::getAction()
             cout << "Incorrect input, attempt " << ++attempts << endl;
         }
     }
+    printState();
 
     // Too many bad inputs
     if(attempts > 2) {
         cout << "Too many failed attempts. Exiting game" << endl;
         exit(1);
     }
-    return in;
+    return Action(in);
 }
 
 int Player::getBet()

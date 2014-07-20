@@ -10,6 +10,32 @@
 // Gets really verbose if we need to std:: every input
 using namespace std;
 
+enum ActionType {
+    STAND,
+    HIT
+};
+class Action {
+    ActionType t;
+    public:
+        Action(string s) {
+            if(!s.compare("h") || !s.compare("hit")) {
+                t = HIT;
+            }
+            else {
+                t = STAND;
+            }
+        }
+        ActionType getType() {
+            return t;
+        }
+        bool isHit() {
+            return t == HIT;
+        }
+        bool isStand() {
+            return t == STAND;
+        }
+};
+
 class Player {
     int chips;
     int chipsBet;
@@ -24,7 +50,7 @@ class Player {
         bool canAct();
         bool canPlay();
 
-        string getAction();
+        Action getAction();
         int getBet();
         int getHandValue();
         void printState();
