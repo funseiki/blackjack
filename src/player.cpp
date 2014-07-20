@@ -93,6 +93,17 @@ void Player::addToHand(Card c)
     hand.push_back(c);
 }
 
+vector<Card> Player::returnHand()
+{
+    vector<Card> oldHand;
+    unsigned int length = hand.size();
+    for(unsigned int i = 0; i < length; i++) {
+        oldHand.push_back(hand.back());
+        hand.pop_back();
+    }
+    return oldHand;
+}
+
 void Player::printState()
 {
     cout << "Player State" << endl;

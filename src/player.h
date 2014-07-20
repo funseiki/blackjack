@@ -57,6 +57,7 @@ class Player {
         void printHand();
 
         void addToHand(Card c);
+        vector<Card> returnHand();
 };
 
 #endif
