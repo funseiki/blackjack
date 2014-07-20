@@ -13,7 +13,7 @@ bool Player::canAct()
 
 bool Player::canPlay()
 {
-    return false;
+    return chips > 0;
 }
 
 string Player::getInput()
